@@ -4,10 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Baseball Stats Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
     <h1>⚾Baseball Stats Analyzer</h1>
-    <p>Welcome to my first Flask project</p>
+    <p>Calculate batting average easily!</p>
+
+    <from>
+        <label>Player Name</label><br>
+        <input type="text"><br><br>
+
+        <label>At Bats</label><br>
+        <input type="number"><br><br>
+
+        <label>Hits</label><br>
+        <input type="number"><br><br>
+
+        <button>Calculate</button>
+    </from>
 </body>
 </html>
