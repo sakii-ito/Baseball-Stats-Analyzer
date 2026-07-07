@@ -11,17 +11,21 @@
     <h1>⚾Baseball Stats Analyzer</h1>
     <p>Calculate batting average easily!</p>
 
-    <from>
+    <form method="POST">
         <label>Player Name</label><br>
-        <input type="text"><br><br>
+        <input type="text" name="player"><br><br>
 
         <label>At Bats</label><br>
-        <input type="number"><br><br>
+        <input type="number" name="at_bats"><br><br>
 
         <label>Hits</label><br>
-        <input type="number"><br><br>
+        <input type="number" name="hits"><br><br>
 
         <button>Calculate</button>
-    </from>
+    </form>
+    {% if average != None %}
+    <h2>Batting Average</h2>
+    <p>{{ average }}</p>
+    {% endif %}
 </body>
 </html>
