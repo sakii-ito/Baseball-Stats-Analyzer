@@ -171,3 +171,29 @@ Git 프로젝트를 저장하고 공유하는 서비스이다.
 
 프로젝트를 설명하는 파일이다.
 GitHub에서 가장 먼저 표시된다.
+
+
+---
+
+# value
+
+입력창에 값을 표시하는 속성이다.
+ex: <input value="{{ player }}">
+전송 후에도 입력한 내용을 유지할 수 있다.
+
+
+---
+
+# User Experience (UX)
+
+사용자가 서비스를 이용하면서 느끼는 사용 경험이다.
+입력한 내용을 유지하면 더 편리한 웹 애플리케이션이 된다.
+
+
+---
+
+# Multiple Variables
+
+render_template()는 여러  개의 데이터를 HTML로 전달할 수 있다.
+ex: plyer=plyer
+    average=average
