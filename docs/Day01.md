@@ -1,4 +1,4 @@
-# Day 01 - Project Setup
+# 📅 Day 01 - Project Setup
 
 ## Goal
 Create the project structure.

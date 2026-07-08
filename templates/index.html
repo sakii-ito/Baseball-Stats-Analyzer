@@ -13,13 +13,13 @@
 
     <form method="POST">
         <label>Player Name</label><br>
-        <input type="text" name="player"><br><br>
+        <input type="text" name="player" value="{{ player }}"><br><br>
 
         <label>At Bats</label><br>
-        <input type="number" name="at_bats"><br><br>
+        <input type="number" name="at_bats" value="{{ at_bats }}"><br><br>
 
         <label>Hits</label><br>
-        <input type="number" name="hits"><br><br>
+        <input type="number" name="hits" value="{{ hits }}"><br><br>
 
         <button>Calculate</button>
     </form>
