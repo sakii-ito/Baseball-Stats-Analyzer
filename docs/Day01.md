@@ -11,7 +11,7 @@ Create the project structure.
 - Created .gitignore
 - Created requirements.txt
 
-## Leaned
+## What I Leaned
 - Repository
 - README
 - Project Structure
