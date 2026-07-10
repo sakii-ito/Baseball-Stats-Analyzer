@@ -21,11 +21,18 @@
         <label>Hits</label><br>
         <input type="number" name="hits" value="{{ hits }}"><br><br>
 
+        <label>Walks</label><br>
+        <input type="number" name="walks" value="{{ walks }}"><br><br>
+
         <button>Calculate</button>
     </form>
     {% if average != None %}
     <h2>Batting Average</h2>
     <p>{{ average }}</p>
+
+    <h2>On-Base Percentage</h2>
+    <h3>{{ obp }}</h3>
+    
     {% endif %}
 </body>
 </html>
