@@ -197,3 +197,21 @@ ex: <input value="{{ player }}">
 render_template()는 여러  개의 데이터를 HTML로 전달할 수 있다.
 ex: plyer=plyer
     average=average
+
+
+---
+
+# Variable Initialization
+
+변수를 사용하기 전에 초기값을 설정하는 것이다.
+ex: obp = None
+    walks = ""
+미리 초기화하면 변수가 없어서 발생하는 오류를 방지할 수 있다.
+
+
+---
+
+# UnboundLocalError
+
+초기화되지 않은 지역 변수를 사용할 때 발생하는 오류이다.
+변수를 사용하기 전에 반드시 초기화해야 한다.
