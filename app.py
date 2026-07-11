@@ -10,6 +10,7 @@ def home():
     at_bats = ""
     hits = ""
     walks = ""
+    error = ""
     
     if request.method == "POST":
         
@@ -18,16 +19,25 @@ def home():
         hits = request.form["hits"]
         walks = request.form["walks"]
         
-        if int(at_bats)> 0:
+        if int(hits) > int(at_bats):
+            error = "Hits cannot be greater than At Bats."
+            average = ""
+            obp = ""
+            
+        elif int(at_bats) > 0:
             average = f"{int(hits) / int(at_bats):.3f}"
+            
+            if int(at_bats) + int(walks) > 0:
+                obp = f"{(int(hits) + int(walks)) / (int(at_bats) + int(walks)):.3f}"
+                
+            else:
+                obp = "Cannot divide by 0"
+                
         else:
             average = "Cannot divide by 0"
-        
-        if int(at_bats) + int(walks) > 0:
-            obp = f"{(int(hits) + int(walks)) / (int(at_bats) + int(walks)):.3f}"
-        else:
             obp = "Cannot divide by 0"
         
+
     return render_template(
         "index.html", 
         average=average,
@@ -35,7 +45,8 @@ def home():
         player=player,
         at_bats=at_bats,
         hits=hits,
-        walks=walks    
+        walks=walks,    
+        error=error
     )
 
 if __name__ == "__main__":

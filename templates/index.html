@@ -27,11 +27,19 @@
         <button>Calculate</button>
     </form>
     {% if average != None %}
-    <h2>Batting Average</h2>
-    <p>{{ average }}</p>
+    <div class="result-card">
+        <h2>⚾ Results</h2>
 
-    <h2>On-Base Percentage</h2>
-    <h3>{{ obp }}</h3>
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <h3>Batting Average</h3>
+        <p>{{ average }}</p>
+
+        <h3>On-Base Percentage</h3>
+        <p>{{ obp }}</p>
+    </div>
     
     {% endif %}
 </body>
