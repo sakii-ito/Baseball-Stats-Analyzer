@@ -215,3 +215,49 @@ ex: obp = None
 
 초기화되지 않은 지역 변수를 사용할 때 발생하는 오류이다.
 변수를 사용하기 전에 반드시 초기화해야 한다.
+
+
+---
+
+# Validation
+
+Validation(입력 검증)은 사용자가 입력한 데이터가 올바른지 확인하는 과정이다.
+잘못된 데이터를 막고 프로그램을 안전하게 실행하기 위해 사용한다.
+ex:
+'python'
+if int(hits) > int(at_bats):
+    error = "Hits cannot be greater than At Bats."
+
+
+---
+
+# Error Handling
+Error Handling(오류 처리)은 오류가 발생했을 때 적절한 메시지를 표시하거나 프로그램이 
+중단되지 않도록 하는 방법이다.
+사용자가 문제의 원인을 쉽게 이해할 수 있도록 도와준다.
+ex: 
+'python'
+error = "Hits cannot be greater than At Bats."
+
+
+---
+
+# Jinja2 if Statement
+Jinja2에서는 'if' 문을 사용하여 조건에 따라 HTML을 표시할 수 있다.
+ex:
+'HTML'
+{% if error %}
+<p class="error">{{ error }}</p>
+{% endif %}
+
+
+---
+
+# Honver
+Hover는 마우스를 요소 위에 올렸을 때 스타일을 변경하는 CSS 가능이다.
+웹페이지의 사용성과 디자인을 향상시킨다.
+ex:
+'CSS'
+button:hover {
+    background-color: #0056b3;
+}
