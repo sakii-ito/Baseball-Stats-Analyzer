@@ -232,6 +232,7 @@ if int(hits) > int(at_bats):
 ---
 
 # Error Handling
+
 Error Handling(오류 처리)은 오류가 발생했을 때 적절한 메시지를 표시하거나 프로그램이 
 중단되지 않도록 하는 방법이다.
 사용자가 문제의 원인을 쉽게 이해할 수 있도록 도와준다.
@@ -243,6 +244,7 @@ error = "Hits cannot be greater than At Bats."
 ---
 
 # Jinja2 if Statement
+
 Jinja2에서는 'if' 문을 사용하여 조건에 따라 HTML을 표시할 수 있다.
 ex:
 'HTML'
@@ -254,6 +256,7 @@ ex:
 ---
 
 # Honver
+
 Hover는 마우스를 요소 위에 올렸을 때 스타일을 변경하는 CSS 가능이다.
 웹페이지의 사용성과 디자인을 향상시킨다.
 ex:
@@ -261,3 +264,25 @@ ex:
 button:hover {
     background-color: #0056b3;
 }
+
+
+---
+
+# Form Field Name
+
+HTML의 'name' 속성은 Flask에서 폼 데이터를 받을 때 사용하는 이름이다.
+HTML과 Python에서 같은 이름을 사용해야 한다.
+ex:
+'HTML'
+<input name="home_runs">
+
+'python'
+home_runs = request.form["home_runs"]
+
+
+---
+
+# Debugging
+
+Dibugging(디버깅)은 프로그램의 오류를 찾고 수정하는 과정이다.
+오류 메시지를 읽고 원인을 찾는 것이 중요하다.
