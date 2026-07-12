@@ -24,6 +24,9 @@
         <label>Walks</label><br>
         <input type="number" name="walks" value="{{ walks }}"><br><br>
 
+        <label>Home Runs</label><br>
+        <input type="number" name="home_runs" value="{{ home_runs }}"><br><br>
+
         <button>Calculate</button>
     </form>
     {% if average != None %}
@@ -39,6 +42,9 @@
 
         <h3>On-Base Percentage</h3>
         <p>{{ obp }}</p>
+
+        <h3>Slugging Percentage</h3>
+        <p>{{ slg }}</p>
     </div>
     
     {% endif %}

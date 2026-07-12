@@ -4,12 +4,16 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def home():
-    average = None
-    obp = None
+    average = ""
+    obp = ""
+    slg = ""
+    
     player = ""
     at_bats = ""
     hits = ""
     walks = ""
+    home_runs = ""
+    
     error = ""
     
     if request.method == "POST":
@@ -18,6 +22,7 @@ def home():
         at_bats = request.form["at_bats"]
         hits = request.form["hits"]
         walks = request.form["walks"]
+        home_runs = request.form["home_runs"]
         
         if int(hits) > int(at_bats):
             error = "Hits cannot be greater than At Bats."
@@ -36,16 +41,23 @@ def home():
         else:
             average = "Cannot divide by 0"
             obp = "Cannot divide by 0"
+            
+        if int(at_bats) > 0:
+            slg = f"{int(home_runs) / int(at_bats):.3f}"
         
+        else:
+            slg = "Cannot divide by 0"
 
     return render_template(
         "index.html", 
         average=average,
         obp=obp,
+        slg=slg,
         player=player,
         at_bats=at_bats,
         hits=hits,
         walks=walks,    
+        home_runs=home_runs,
         error=error
     )
 
