@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
-
+players = []
 @app.route("/", methods=["GET", "POST"])
 def home():
     average = ""
@@ -48,14 +48,24 @@ def home():
         else:
             slg = "Cannot divide by 0"
 
+    players.append({
+        "player": player,
+        "average": average,
+        "obp": obp,
+        "slg": slg
+    })
+    
     return render_template(
         "index.html", 
         average=average,
         obp=obp,
         slg=slg,
+        players=players,
+        
         player=player,
         at_bats=at_bats,
         hits=hits,
+        
         walks=walks,    
         home_runs=home_runs,
         error=error

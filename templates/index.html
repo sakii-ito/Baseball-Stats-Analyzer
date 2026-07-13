@@ -45,8 +45,19 @@
 
         <h3>Slugging Percentage</h3>
         <p>{{ slg }}</p>
+
+        <hr>
+
+        <h2>⚾ Player History</h2>
+        {% for p in players %}
+        <div class="history-card">
+            <h3>{{ p.player }}</h3>
+            <p>AVG : {{ p.average }}</p>
+            <p>OBP : {{ p.obp }}</p>
+            <p>SLG : {{ p.slg }}</p>
     </div>
     
+    {% endfor %}
     {% endif %}
 </body>
 </html>
