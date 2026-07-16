@@ -22,16 +22,12 @@ ex:
 'python'
 home_runs = request.form["home_runs"]
 
----
-
 ### Slugging Percentage (SLG)
 A new statistic can be calculated using values submitted from the form.
 ex:
 'python'
 if int(at_bats) > 0:
     slg = f"{int(home_runs) / int(at_bats):.3f}"
-
----
 
 ### Passing Variables to HTML
 New values must also be passed to 'render_template()' so they can be displayed on the webpage.
@@ -47,20 +43,17 @@ return render_template(
 ---
 
 ## Files Updated
-
 - app.py
 - templates/index.html
 
 ---
 
 ## Git Commit
-
 Add slugging percentage calculation
 
 ---
 
 ## Reflection
-
 Today I added a new baseball statistic, Slugging Percentage (SLG), to my Flask application.
 I learned how to connect a new HTML input field with Flask and display the calculated result on the webpage.
 I also found and fixed an error caused by a mismatched form field name.

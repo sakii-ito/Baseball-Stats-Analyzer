@@ -286,3 +286,67 @@ home_runs = request.form["home_runs"]
 
 Dibugging(디버깅)은 프로그램의 오류를 찾고 수정하는 과정이다.
 오류 메시지를 읽고 원인을 찾는 것이 중요하다.
+
+
+---
+
+# List
+
+List(리스트)는 여러 개의 데이터를 순서대로 저장할 수 있는 자료형이다.
+ex:
+'python'
+players = []
+
+
+---
+
+# Dictionary
+
+Dictionary(딕셔너리)는 키(key)와 값(value)을 한 쌍으로 저장하는 자료형이다.
+ex:
+'python'
+players_data = {
+    "player": player,
+    "average": average,
+    "obp": obp,
+    "slg": slg
+}
+
+
+---
+
+# append()
+
+append()는 리스트의 마지막에 새로운 데이터를 추가하는 메서드이다.
+ex:
+'python'
+players.append(player_data)
+
+
+---
+
+# Jinja2 for Loop
+
+Jinja2의 for 문은 리스트의 데이터를 하나씩 반복하여 HTML에 표시할 때 사용한다.
+ex:
+'HTML'
+{% for p in players %}
+    <h3>{{ p.player }}</h3>
+    <p>AVG : {{ p.average }}</p>
+    <p>OBP : {{ p.obp }}</p>
+    <p>SLG : {{ p.slg }}</p>
+{% endfor %}
+
+
+---
+
+# render_template()
+
+render_template()는 Python의 데이터를 HTML로 전달하는 함수이다.
+리스트도 HTML로 전달할 수 있다.
+ex:
+'python'
+return render_template(
+    "index.html",
+    players=players
+)
