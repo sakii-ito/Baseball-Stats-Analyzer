@@ -1,6 +1,21 @@
 from flask import Flask, render_template, request
+import sqlite3
 
 app = Flask(__name__)
+conn = sqlite3.connect("players.db", check_same_thread=False)
+cursor = conn.cursor()
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS players(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    player TEXT,
+    average TEXT,
+    obp TEXT,
+    slg TEXT
+    )
+    """)
+conn.commit
+
 players = []
 @app.route("/", methods=["GET", "POST"])
 def home():
