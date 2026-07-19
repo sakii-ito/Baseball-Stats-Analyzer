@@ -350,3 +350,57 @@ return render_template(
     "index.html",
     players=players
 )
+
+
+---
+
+# SQLite
+
+SQLite는 데이터를 파일에 저장할 수 있는 가벼운 데이터베이스이다.
+Python에서는 sqlite3 모듈을 사용하여 SQLite를 사용할 수 있다.
+
+
+---
+
+# sqlite3.connect()
+
+sqlite3.connect()는 SQLite 데이터베이스에 연결하는 함수이다.
+ex:
+'python'
+conn = sqlite3.connect("players.db)
+
+
+---
+
+# Cursor
+
+Corsor(커서)는 SQLite 데이터베이스에 SQL 명령ㅇ을 실행하기 위한 객체이다.
+ex:
+'python'
+cursor = conn.corsor()
+
+
+---
+# CREATE TABLE
+
+CREATE TABLE은 새로운 테이블을 생성하는 SQL문이다.
+IF NOT EXISTS를 사용하면 이미 테이블이 있어도 오류가 발생하지 않는다.
+ex:
+'SQL'
+CREATE TABLE IF NOT EXISTS players(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    player TEXT,
+    average TEXT,
+    obp TEXT,
+    slg TEXT
+    )
+
+
+---
+
+# commit()
+
+commit()은 데이터베이스의 변경 사항을 저장하는 메서드이다.
+ex:
+'python'
+conn.commit()
