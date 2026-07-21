@@ -6,6 +6,7 @@ A web application for analyzing baseball player statistics.
 - Calculate batting average
 - Calculate ERA
 - Player evaluation
+- Store player data using SQLite database
 
 ## Tech Stack
 - Python
