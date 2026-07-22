@@ -21,6 +21,16 @@
         <label>Hits</label><br>
         <input type="number" name="hits" value="{{ hits }}"><br><br>
 
+        <label>Singles</label>
+        <input type="number" name="singles" value="{{ singles }}"><br><br>
+
+        <label>Doubles</label>
+        <input type="number" name="doubles" value="{{ doubles }}"><br><br>
+
+        <label>Triples</label>
+        <input type="number" name="triples" value="{{ triples }}"><br><br>
+
+
         <label>Walks</label><br>
         <input type="number" name="walks" value="{{ walks }}"><br><br>
 
@@ -51,10 +61,10 @@
         <h2>⚾ Player History</h2>
         {% for p in players %}
         <div class="history-card">
-            <h3>{{ p.player }}</h3>
-            <p>AVG : {{ p.average }}</p>
-            <p>OBP : {{ p.obp }}</p>
-            <p>SLG : {{ p.slg }}</p>
+            <h3>{{ p[0] }}</h3>
+            <p>AVG : {{ p[1] }}</p>
+            <p>OBP : {{ p[2] }}</p>
+            <p>SLG : {{ p[3] }}</p>
     </div>
     
     {% endfor %}

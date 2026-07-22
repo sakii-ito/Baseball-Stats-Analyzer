@@ -14,9 +14,8 @@ CREATE TABLE IF NOT EXISTS players(
     slg TEXT
     )
     """)
-conn.commit
+conn.commit()
 
-players = []
 @app.route("/", methods=["GET", "POST"])
 def home():
     average = ""
@@ -36,6 +35,11 @@ def home():
         player = request.form["player"]
         at_bats = request.form["at_bats"]
         hits = request.form["hits"]
+        
+        singles = request.form["singles"]
+        doubles = request.form["doubles"]
+        triples = request.form["triples"]
+        
         walks = request.form["walks"]
         home_runs = request.form["home_runs"]
         
@@ -58,17 +62,25 @@ def home():
             obp = "Cannot divide by 0"
             
         if int(at_bats) > 0:
-            slg = f"{int(home_runs) / int(at_bats):.3f}"
+            total_bases = (
+                int(singles)
+                + int(doubles) * 2
+                + int(triples) * 3
+                + int(home_runs) * 4
+            )
+            slg = f"{total_bases / int(at_bats):.3f}"
         
         else:
             slg = "Cannot divide by 0"
 
-    players.append({
-        "player": player,
-        "average": average,
-        "obp": obp,
-        "slg": slg
-    })
+    cursor.execute("""
+                   INSERT INTO players (player, average, obp, slg)
+                   VALUES (?, ?, ?, ?)
+                   """, (player, average, obp, slg))
+    conn.commit()
+    
+    cursor.execute("SELECT player, average, obp, slg FROM players")
+    players = cursor.fetchall()
     
     return render_template(
         "index.html", 
