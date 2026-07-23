@@ -404,3 +404,40 @@ commit()은 데이터베이스의 변경 사항을 저장하는 메서드이다.
 ex:
 'python'
 conn.commit()
+
+
+---
+
+# SELECT
+
+SELECT는 데이터베이스에서 원하는 데이터를 조회하는 SQL 명령어이다.
+ex:
+'SQL'
+SELECT player, average, obp, slg FROM players
+
+
+---
+
+# fetchall()
+fetchall()은 SQL 쿼리로 조회한 모든 데이터를 가져오는 메서드이다.
+ex:
+'python'
+players = for문과 인덱스를 사용하여 데이터베이스에서 가져온 데이터를 HTML에 표시할 수 있다.
+ex:
+'html'
+{% for p in players %}
+    <p>{{ p[0] }}</p>
+    <p>{{ p[1] }}</p>
+{% endfor %}
+
+
+---
+
+# 디버깅
+개발 중 SQL과 Jinja2에서 발생한 문법 오류를 확인하고 수정할 수 있다.
+ex:
+'python'
+SELECT player, average, obp, slg FROM players
+
+'html'
+{{ p[3] }}
