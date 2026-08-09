@@ -43,7 +43,17 @@ def home():
         walks = request.form["walks"]
         home_runs = request.form["home_runs"]
         
-        if int(hits) > int(at_bats):
+        hit_total = (
+            int(singles)
+            + int(doubles)
+            + int(triples)
+            + int(home_runs)
+        )
+        
+        if hit_total != int(hits):
+            error = "Hits must match Singles + Doubles + Triples + Home Runs."
+        
+        elif int(hits) > int(at_bats):
             error = "Hits cannot be greater than At Bats."
             average = ""
             obp = ""
@@ -57,11 +67,6 @@ def home():
             else:
                 obp = "Cannot divide by 0"
                 
-        else:
-            average = "Cannot divide by 0"
-            obp = "Cannot divide by 0"
-            
-        if int(at_bats) > 0:
             total_bases = (
                 int(singles)
                 + int(doubles) * 2
@@ -71,14 +76,16 @@ def home():
             slg = f"{total_bases / int(at_bats):.3f}"
         
         else:
+            average = "Cannot divide by 0"
+            obp = "Cannot divide by 0"
             slg = "Cannot divide by 0"
-
-    cursor.execute("""
+            
+        cursor.execute("""
                    INSERT INTO players (player, average, obp, slg)
                    VALUES (?, ?, ?, ?)
                    """, (player, average, obp, slg))
-    conn.commit()
-    
+        conn.commit()
+
     cursor.execute("SELECT player, average, obp, slg FROM players")
     players = cursor.fetchall()
     
