@@ -79,12 +79,13 @@ def home():
             average = "Cannot divide by 0"
             obp = "Cannot divide by 0"
             slg = "Cannot divide by 0"
-            
-        cursor.execute("""
+        
+        if not error:    
+            cursor.execute("""
                    INSERT INTO players (player, average, obp, slg)
                    VALUES (?, ?, ?, ?)
                    """, (player, average, obp, slg))
-        conn.commit()
+            conn.commit()
 
     cursor.execute("SELECT player, average, obp, slg FROM players")
     players = cursor.fetchall()
