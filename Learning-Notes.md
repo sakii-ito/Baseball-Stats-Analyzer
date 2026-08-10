@@ -441,3 +441,24 @@ SELECT player, average, obp, slg FROM players
 
 'html'
 {{ p[3] }}
+
+
+---
+
+# 오류가 없을 때만 실행하기
+'if not error'를 사용하면 error가 없을 때만 코드를 실행할 수 있다.
+ex:
+'python'
+if not error:
+    cursor.execute(...)
+    conn.commit()
+오류가 있는 경우에는 데이터를 저장하지 않도록 할 수 있다.
+
+---
+
+# 입력값 검증
+사용자가 입력한 값이 올바른지 확인한 후 계간이나 데이터 저장을 실행해야 한다.
+ex:
+'python'
+if hit_total != int(hits):
+    error = "Invalid input"
