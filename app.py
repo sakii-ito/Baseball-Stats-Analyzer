@@ -87,7 +87,7 @@ def home():
                    """, (player, average, obp, slg))
             conn.commit()
 
-    cursor.execute("SELECT player, average, obp, slg FROM players")
+    cursor.execute("SELECT id, player, average, obp, slg FROM players")
     players = cursor.fetchall()
     
     return render_template(
@@ -105,6 +105,17 @@ def home():
         home_runs=home_runs,
         error=error
     )
+
+@app.route("/player/<int:player_id>")
+def player_detail(player_id):
+    cursor.execute(
+        "SELECT player, average, obp, slg FROM players WHERE id = ?",
+        (player_id,)
+    )
+
+    player = cursor.fetchone()
+
+    return render_template("player.html", player=player)
 
 if __name__ == "__main__":
     app.run(debug=True)
