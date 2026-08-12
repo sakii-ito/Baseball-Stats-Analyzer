@@ -462,3 +462,55 @@ ex:
 'python'
 if hit_total != int(hits):
     error = "Invalid input"
+
+
+---
+
+# URL Parameter
+
+URL에 값을 포함하여 특정 데이터를 구분할 수 있다.
+
+ex:
+
+'python'
+@app.route("/player/<int:player_id>")
+
+
+---
+
+# WHERE
+
+WHERE를 사용하면 조건에 맞는 데이터만 조회할 수 있다.
+
+ex:
+
+'python'
+SELECT player, average, obp, slg
+FROM players
+WHERE id = ?
+
+
+---
+
+# fetchone()
+
+fetchone()은 조회 결과에서 하나의 데이터를 가져오는 메서드이다.
+
+ex:
+
+'python'
+player = cursor.fetchone()
+
+
+---
+
+# Flask Route
+
+Route를 사용하면 URL에 따라 다른 함수를 실행할 수 있다.
+
+ex:
+
+'python'
+@app.route("/player/<int:player_id>")
+def player_detail(player_id):
+    ...
