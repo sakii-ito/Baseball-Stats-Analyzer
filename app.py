@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import sqlite3
 
 app = Flask(__name__)
@@ -116,6 +116,16 @@ def player_detail(player_id):
     player = cursor.fetchone()
 
     return render_template("player.html", player=player)
+
+@app.route("/player/<int:player_id>/delete", methods=["POST"])
+def delete_player(player_id):
+    cursor.execute(
+        "DELETE FROM players WHERE id = ?",
+        (player_id,)
+    )
+    conn.commit()
+
+    return redirect("/")
 
 if __name__ == "__main__":
     app.run(debug=True)

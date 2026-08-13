@@ -24,6 +24,10 @@
         <h3>Slugging Percentage</h3>
         <p>{{ player[3] }}</p>
 
+        <form action="/player/{{ request.view_args.player_id }}/delete" method="POST">
+            <button type="submit">🗑 Delete</button>
+        </form>
+
         <a href="/">← Back to Home</a>
 
     </div>
