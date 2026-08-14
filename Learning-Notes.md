@@ -381,6 +381,7 @@ cursor = conn.corsor()
 
 
 ---
+
 # CREATE TABLE
 
 CREATE TABLE은 새로운 테이블을 생성하는 SQL문이다.
@@ -419,6 +420,7 @@ SELECT player, average, obp, slg FROM players
 ---
 
 # fetchall()
+
 fetchall()은 SQL 쿼리로 조회한 모든 데이터를 가져오는 메서드이다.
 ex:
 'python'
@@ -434,6 +436,7 @@ ex:
 ---
 
 # 디버깅
+
 개발 중 SQL과 Jinja2에서 발생한 문법 오류를 확인하고 수정할 수 있다.
 ex:
 'python'
@@ -446,6 +449,7 @@ SELECT player, average, obp, slg FROM players
 ---
 
 # 오류가 없을 때만 실행하기
+
 'if not error'를 사용하면 error가 없을 때만 코드를 실행할 수 있다.
 ex:
 'python'
@@ -454,9 +458,11 @@ if not error:
     conn.commit()
 오류가 있는 경우에는 데이터를 저장하지 않도록 할 수 있다.
 
+
 ---
 
 # 입력값 검증
+
 사용자가 입력한 값이 올바른지 확인한 후 계간이나 데이터 저장을 실행해야 한다.
 ex:
 'python'
@@ -514,3 +520,65 @@ ex:
 @app.route("/player/<int:player_id>")
 def player_detail(player_id):
     ...
+
+
+---
+
+# DELETE
+
+DELETE는 데이터베이스에서 데이터를 삭제할 때 사용하는 SQL 명령어이다.
+
+ex:
+
+'python'
+DELETE FROM players WHERE id = ?
+
+
+---
+
+# WHERE
+
+WHERE를 사용하면 특정 조건에 맞는 데이터만 삭제할 수 있다.
+
+ex:
+
+'python'
+DELETE FROM players WHERE id = ?
+
+
+---
+
+# POST
+
+POST는 서버에 데이터를 보내거나 데이터를 변경할 때 사용할 수 있다.
+
+ex:
+
+'python'
+@app.route("/player/<int:player_id>/delete", methods=["POST"])
+
+
+---
+
+# redirect()
+
+redirect()는 작업이 완료된 후 다른 URL로 이동할 때 사용한다.
+
+ex:
+
+'python'
+return redirect("/")
+
+
+---
+
+# 데이터 삭제
+
+Flask에서 SQL 쿼리를 실행하고 commit()하면 데이터베이스의 내용을 변경할 수 있다.
+
+ex:
+
+'python'
+cursor.execute("DELETE FROM players WHERE id = ?", (player_id,))
+conn.commit()
+
