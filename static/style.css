@@ -8,57 +8,67 @@ body{
 
 h1 {
     color: #176b3a;
-    font-size: 36px;
-    margin-bottom: 10px;
+    font-size: 38px;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
 }
 
 h1::first-letter {
-    font-size: 42px;
+    font-size: 46px;
 }
 
-p {
-    color: #52665a;
+body > p {
+    color: #6a7d70;
+    font-size: 16px;
 }
+
+/* main form */
 
 form {
     background-color: white;
     max-width: 400px;
     margin: 25px auto;
     padding: 30px;
-    border-radius: 18px;
+    border-radius: 20px;
     border: 3px solid #d5eadc;
-    box-shadow: 0 6px 18px rgba(23, 107, 58, 0.12);
+    box-shadow: 0 8px 20px rgba(23, 107, 58, 0.12);
 }
 
 label {
+    display: inline-block;
     font-weight: bold;
     color: #176b3a;
+    margin-bottom: 3px;
 }
 
 input {
     width: 90%;
-    padding: 10px;
+    padding: 11px;
     margin-top: 6px;
     margin-bottom: 15px;
     border: 2px solid #c9dfd0;
-    border-radius: 10px;
+    border-radius: 12px;
     font-size: 15px;
     box-sizing: border-box;
+    background-color: #fbfefc;
 }
 
 input:focus {
     outline: none;
     border-color: #176b3a;
+    box-shadow: 0 0 0 3px #dff0e4;
 }
 
+/* Buttons */
+
 button {
-    padding: 11px 24px;
+    padding: 11px 26px;
     font-size: 16px;
     font-weight: bold;
     color: white;
     background-color: #176b3a;
     border: none;
-    border-radius: 12px;
+    border-radius: 20px;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -68,29 +78,45 @@ button:hover {
     transform: translateY(-2px);
 }
 
+/* Results */
+
 .result-card {
     background-color: white;
     max-width: 500px;
     margin: 25px auto;
     padding: 25px;
-    border-radius: 18px;
+    border-radius: 20px;
     border: 3px solid #d5eadc;
-    box-shadow: 0 6px 18px rgba(23, 107, 58, 0.12);
+    box-shadow: 0 8px 20px rgba(23, 107, 58, 0.12);
 }
 
 .result-card h2 {
     color: #176b3a;
+    margin-bottom: 20px;
 }
 
 .result-card h3 {
     color: #52665a;
+    margin-bottom: 5px;
 }
+
+.result-card h3 ::before {
+    content: "⚾ ";
+}
+
+.result-card p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #243b2f;
+}
+
+/* Player History */
 
 .history-card {
     background-color: #f7fbf8;
     margin: 12px 0;
-    padding: 15px;
-    border-radius: 14px;
+    padding: 16px;
+    border-radius: 16px;
     border: 2px solid #d5eadc;
     transition: 0.3s;
 }
@@ -98,19 +124,31 @@ button:hover {
 .history-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 12px rgba(23, 107, 58, 0.12);
+    background-color: #f0f8f3;
 }
 
 .history-card a {
     color: #176b3a;
     text-decoration: none;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 21px;
 }
+
+.history-card a::before {
+    content: "⚾ ";
+}
+
 .history-card a:hover {
     color: #d66b3d;
 }
+
+/* Error */
+
 .error {
     color: #d33f3f;
     font-weight: bold;
     margin-bottom: 15px;
+    background-color: #fff0f0;
+    padding: 10px;
+    border-radius: 10px;
 }
