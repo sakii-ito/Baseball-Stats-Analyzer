@@ -1,9 +1,16 @@
 body{
     font-family: Arial, sans-serif;
-    background-color: #eef7f1;
+    background: linear-gradient(
+        to bottom,
+        #dff3e5 0%,
+        #eef7f1 45%,
+        #b8d99c 45%,
+        #8fbd70 100%
+    );
     text-align: center;
     margin:40px;
     color: #243b2f;
+    min-height: 100vh;
 }
 
 h1 {
@@ -151,4 +158,34 @@ button:hover {
     background-color: #fff0f0;
     padding: 10px;
     border-radius: 10px;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.stat-box {
+    background-color: #243b2f;
+    color: white;
+    width: 100px;
+    padding: 15px 10px;
+    border-radius: 10px;
+    border: 3px solid #d8b45a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.stat-box h3 {
+    color: #d8b45a;
+    margin: 0 0 8px;
+    font-size: 15px;
+}
+
+.stat-box p {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
 }

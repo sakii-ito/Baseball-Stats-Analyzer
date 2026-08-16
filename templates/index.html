@@ -41,20 +41,30 @@
     </form>
     {% if average != None %}
     <div class="result-card">
-        <h2>⚾ Results</h2>
+        <h2>⚾ SCOREBOARD</h2>
 
         {% if error %}
         <p class="error">{{ error }}</p>
         {% endif %}
 
-        <h3>Batting Average</h3>
-        <p>{{ average }}</p>
+        <div class="scoreboard">
 
-        <h3>On-Base Percentage</h3>
-        <p>{{ obp }}</p>
+            <div class="stat-box">
+                <h3>AVG</h3>
+                <p>{{ average }}</p>
+            </div>
 
-        <h3>Slugging Percentage</h3>
-        <p>{{ slg }}</p>
+            <div class="stat-box">
+                <h3>OBP</h3>
+                <p>{{ obp }}</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>SLG</h3>
+                <p>{{ slg }}</p>
+            </div>
+
+        </div>
 
         <hr>
 
