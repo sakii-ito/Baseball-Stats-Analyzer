@@ -582,3 +582,110 @@ ex:
 cursor.execute("DELETE FROM players WHERE id = ?", (player_id,))
 conn.commit()
 
+
+---
+
+# CSS Design
+
+CSS를 사용하여 웹페이지의 색상과 레이아웃을 꾸밀 수 있다.
+배경, 카드, 버튼 등의 스타일을 설정하여 UI를 개선할 수 있다.
+
+ex:
+'CSS'
+body {
+    background-color: #eef7f1;
+    color: #243b2f;
+}
+
+
+---
+
+# background-color
+
+background-color는 요소의 배경색을 설정하는 CSS 속성이다.
+
+ex:
+'CSS'
+body {
+    background-color: #eef7f1;
+}
+
+
+---
+
+# border-radius
+
+border-radius는 요소의 모서리를 둥글게 만드는 CSS 속성이다.
+
+ex:
+'CSS'
+.card {
+    border-radius: 18px;
+}
+
+
+---
+
+# box-shadow
+
+box-shadow는 요소에 그림자를 추가하는 CSS 속성이다.
+카드나 버튼을 입체적으로 보이게 만들 수 있다.
+
+ex:
+'CSS'
+.card {
+    box-shadow: 0 6px 18px rgba(23, 107, 58, 0.12);
+}
+
+
+---
+
+# CSS Card Design
+
+background-color, border, border-radius, box-shadow 등을 사용하면
+HTML 요소를 카드 형태로 디자인할 수 있다.
+
+ex:
+'CSS'
+.history-card {
+    background-color: #f7fbf8;
+    border: 2px solid #d5eadc;
+    border-radius: 14px;
+}
+
+
+---
+
+# UI Design
+
+UI는 사용자가 웹페이지를 보고 조작하는 화면이다.
+색상, 크기, 간격, 버튼 등을 조절하여 보기 쉽고 사용하기 편한 화면을 만들 수 있다.
+
+오늘은 Scoreboard와 Player History를 카드 형태로 디자인하여
+웹페이지의 UI를 개선했다.
+
+
+---
+
+# CSS Transition
+
+transition은 CSS 속성이 변경될 때 부드럽게 변화하도록 만드는 속성이다.
+
+ex:
+'CSS'
+button {
+    transition: 0.3s;
+}
+
+
+---
+
+# transform
+
+transform은 요소의 위치나 크기 등을 변경할 수 있는 CSS 속성이다.
+
+ex:
+'CSS'
+button:hover {
+    transform: translateY(-2px);
+}
