@@ -139,6 +139,28 @@ button:hover {
     color: #243b2f;
 }
 
+.stat-box {
+    background-color: #243b2f;
+    color: white;
+    width: 110px;
+    padding: 12px 8px;
+    border-radius: 10px;
+    border: 3px solid #d8b45a;
+}
+
+.stat-box h3 {
+    color: #d8b45a;
+    margin: 0 0 5px;
+    font-size: 14px;
+}
+
+.stat-box p {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
 /* Player History */
 
 .history-card {
