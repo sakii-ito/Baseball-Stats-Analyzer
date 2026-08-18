@@ -15,28 +15,46 @@
         <label>Player Name</label><br>
         <input type="text" name="player" value="{{ player }}"><br><br>
 
-        <label>At Bats</label><br>
-        <input type="number" name="at_bats" value="{{ at_bats }}"><br><br>
+        <div class="input-grid">
 
-        <label>Hits</label><br>
-        <input type="number" name="hits" value="{{ hits }}"><br><br>
+            <div>
+                <label>At Bats</label><br>
+                <input type="number" name="at_bats" value="{{ at_bats }}">
+            </div>
 
-        <label>Singles</label>
-        <input type="number" name="singles" value="{{ singles }}"><br><br>
+            <div>
+                <label>Hits</label><br>
+                <input type="number" name="hits" value="{{ hits }}">
+            </div>
 
-        <label>Doubles</label>
-        <input type="number" name="doubles" value="{{ doubles }}"><br><br>
+            <div>
+                <label>Singles</label><br>
+                <input type="number" name="singles" value="{{ singles }}">
+            </div>
 
-        <label>Triples</label>
-        <input type="number" name="triples" value="{{ triples }}"><br><br>
+            <div>
+                <label>Doubles</label><br>
+                <input type="number" name="doubles" value="{{ doubles }}">
+            </div>
 
+            <div>
+                <label>Triples</label><br>
+                <input type="number" name="triples" value="{{ triples }}">
+            </div>
 
-        <label>Walks</label><br>
-        <input type="number" name="walks" value="{{ walks }}"><br><br>
+            <div>
+                <label>Walks</label><br>
+                <input type="number" name="walks" value="{{ walks }}">
+            </div>
 
-        <label>Home Runs</label><br>
-        <input type="number" name="home_runs" value="{{ home_runs }}"><br><br>
+            <div>
+                <label>Home Runs</label><br>
+                <input type="number" name="home_runs" value="{{ home_runs }}">
+            </div>
 
+        </div>
+
+        <br>
         <button>Calculate</button>
     </form>
     {% if average != None %}
