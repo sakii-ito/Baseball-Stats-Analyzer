@@ -690,3 +690,112 @@ button:hover {
     transform: translateY(-2px);
 }
 
+
+---
+
+# CSS Grid
+
+
+CSS Grid는 요소를 행과 열로 배치할 수 있는 CSS 레이아웃 기능이다.
+
+
+ex:
+'css'
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+입력창을 2열로 배치하여 긴 폼을 더 깔끔하게 만들 수 있다.
+
+
+---
+
+# grid-column
+
+grid-column은 Grid 요소가 차지하는 열의 범위를 지정하는 CSS 속성이다.
+
+ex:
+'css'
+.input-grid div:last-child {
+    grid-column: 1 / 3;
+}
+
+Home Runs 입력창처럼 특정 요소를 여러 열에 걸쳐 배치할 수 있다.
+
+
+---
+
+# linear-gradient()
+
+linear-gradient()는 CSS에서 색상이 자연스럽게 변하는 배경을 만드는 기능이다.
+
+ex:
+'css'
+background: linear-gradient(
+    to bottom,
+    #dff3e5 0%,
+    #eef7f1 45%,
+    #b8d99c 45%,
+    #8fbd70 100%
+);
+
+위에서 아래로 색상이 바뀌는 배경을 만들 수 있다.
+
+
+---
+
+# box-shadow
+
+box-shadow는 요소에 그림자 효과를 추가하는 CSS 속성이다.
+ex:
+'css'
+box-shadow: 0 8px 20px rgba(23, 107, 58, 0.12);
+
+카드나 버튼에 그림자를 추가하여 입체적인 느낌을 만들 수 있다.
+
+
+---
+
+# CSS border
+
+border는 요소의 테두리를 설정하는 CSS 속성이다.
+ex:
+'css'
+border: 3px solid #d5eadc;
+
+입력 폼이나 Scoreboard의 영역을 구분하고 디자인을 꾸밀 수 있다.
+
+
+---
+# Scoreboard UI
+
+Scoreboard UI는 중요한 데이터를 한눈에 볼 수 있도록 표시하는 디자인이다.
+이번 프로젝트에서는 AVG, OBP, SLG를 각각의 stat-box에 표시하여 야구 스코어보드처럼 디자인했다.
+ex:
+'html'
+<div class="stat-box">
+    <h3>AVG</h3>
+    <p>{{ average }}</p>
+</div>
+
+
+---
+
+# UI Layout
+
+UI Layout은 웹페이지의 요소를 보기 좋게 배치하는 것이다.
+입력창을 2열로 배치하고 Scoreboard의 크기와 간격을 조정하여 화면의 균형을 개선할 수 있다.
+
+
+---
+
+# Input Value
+
+HTML의 value 속성을 사용하면 입력창에 값을 표시할 수 있다.
+'html'
+ex:
+<input type="text" name="player" value="{{ player }}">
+
+Flask에서 전달한 값을 입력창에 다시 표시할 수 있다.
+입력값을 모두 유지하려면 Flask에서 각 변수를 render_template()으로 HTML에 전달해야 한다.
