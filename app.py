@@ -25,6 +25,11 @@ def home():
     player = ""
     at_bats = ""
     hits = ""
+    
+    singles = ""
+    doubles = ""
+    triples = ""
+    
     walks = ""
     home_runs = ""
     
@@ -100,6 +105,10 @@ def home():
         player=player,
         at_bats=at_bats,
         hits=hits,
+        
+        singles=singles,
+        doubles=doubles,
+        triples=triples,
         
         walks=walks,    
         home_runs=home_runs,
