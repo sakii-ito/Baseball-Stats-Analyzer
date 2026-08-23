@@ -799,3 +799,106 @@ ex:
 
 Flask에서 전달한 값을 입력창에 다시 표시할 수 있다.
 입력값을 모두 유지하려면 Flask에서 각 변수를 render_template()으로 HTML에 전달해야 한다.
+
+
+---
+
+# CSS Linear Gradient
+
+linear-gradient()를 사용하면 배경의 색상을 자연스럽게 변화시킬 수 있다.
+
+ex:
+'CSS'
+background: linear-gradient(
+    to bottom,
+    #cfe9f7 0%,
+    #eef7f1 57.5%,
+    #b8d99c 57.5%,
+    #8fbd70 100%
+);
+
+
+---
+
+# Repeating Linear Gradient
+
+repeating-linear-gradient()를 사용하면 반복되는 줄무늬나 패턴을 만들 수 있다.
+
+ex:
+'CSS'
+background:
+    repeating-linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.08) 0px,
+        rgba(255, 255, 255, 0.08) 35px,
+        transparent 35px,
+        transparent 70px
+    );
+
+
+---
+
+# CSS Background
+
+CSS의 background를 사용하면 웹페이지의 배경 색상이나 패턴을 설정할 수 있다.
+
+이번 프로젝트에서는 하늘과 잔디를 표현하여 야구장 같은 분위기를 만들었다.
+
+
+---
+
+# rgba()
+
+rgba()는 색상에 투명도를 추가할 수 있는 CSS 함수이다.
+
+ex:
+'CSS'
+rgba(255, 255, 255, 0.08)
+
+마지막 숫자가 작을수록 색상이 더 투명하게 표시된다.
+
+
+---
+
+# box-shadow
+
+box-shadow는 요소에 그림자 효과를 추가하는 CSS 속성이다.
+
+ex:
+'CSS'
+box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+
+카드나 버튼을 입체적으로 보이게 만들 수 있다.
+
+
+---
+
+# CSS Gradient Design
+
+Gradient와 색상, 패턴을 조합하면 웹페이지에 원하는 분위기를 만들 수 있다.
+
+이번 프로젝트에서는 하늘과 잔디 색상을 사용하여 야구장 느낌의 배경을 만들었다.
+
+
+---
+
+# Variable Initialization
+
+변수를 사용하기 전에 초기값을 설정해야 한다.
+
+ex:
+'python'
+singles = ""
+doubles = ""
+triples = ""
+
+초기화하지 않은 변수를 사용하면 UnboundLocalError가 발생할 수 있다.
+
+
+---
+
+# CSS UI Design
+
+CSS를 사용하면 웹페이지의 색상, 크기, 간격, 그림자 등을 변경하여 사용자에게 더 보기 좋은 UI를 만들 수 있다.
+
+이번 프로젝트에서는 scoreboard를 야구장의 전광판처럼 디자인했다.
