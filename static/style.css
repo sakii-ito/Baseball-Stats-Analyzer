@@ -1,14 +1,24 @@
-body{
+body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(
-        to bottom,
-        #dff3e5 0%,
-        #eef7f1 57.5%,
-        #b8d99c 57.5%,
-        #8fbd70 100%
-    );
+
+    background:
+        repeating-linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.08) 0px,
+            rgba(255, 255, 255, 0.08) 35px,
+            transparent 35px,
+            transparent 70px
+        ),
+        linear-gradient(
+            to bottom,
+            #cfe9f7 0%,
+            #eef7f1 57.5%,
+            #b8d99c 57.5%,
+            #8fbd70 100%
+        );
+
     text-align: center;
-    margin:40px;
+    margin: 40px;
     color: #243b2f;
     min-height: 100vh;
 }
@@ -207,29 +217,33 @@ button:hover {
 .scoreboard {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
+    gap: 12px;
+    margin: 25px 0;
 }
 
 .stat-box {
-    background-color: #243b2f;
+    background-color: #18251f;
     color: white;
-    width: 100px;
-    padding: 15px 10px;
-    border-radius: 10px;
+    width: 110px;
+    padding: 16px 10px;
+    border-radius: 8px;
     border: 3px solid #d8b45a;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 
+        0 4 8px rgba(216, 180, 90, 0.35),
+        0 5px 12px rgba(0, 0, 0, 0.2)
 }
 
 .stat-box h3 {
     color: #d8b45a;
     margin: 0 0 8px;
     font-size: 15px;
+    letter-spacing: 1px;
 }
 
 .stat-box p {
-    color: white;
-    font-size: 22px;
+    color: #f5f5f5;
+    font-size: 24px;
     font-weight: bold;
     margin: 0;
+    letter-spacing: 1px;
 }
