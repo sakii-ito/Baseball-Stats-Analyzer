@@ -247,3 +247,41 @@ button:hover {
     margin: 0;
     letter-spacing: 1px;
 }
+
+.player-stats {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 15px 0;
+}
+
+.player-stats div {
+    background-color: #243b2f;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 65px;
+}
+
+.player-stats span {
+    display: block;
+    color: #d8b45a;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.player-stats strong {
+    display: block;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.history-card > a {
+    color: #176b3a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.history-card > a:hover {
+    color: #d66b3d;
+}

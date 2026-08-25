@@ -89,11 +89,32 @@
         <h2>⚾ Player History</h2>
         {% for p in players %}
         <div class="history-card">
-            <h3>
-                <a href="/player/{{ p[0] }}">{{ p[1] }}</a>
-            </h3>
-    </div>
-    
+
+            <h3>⚾ {{ p[1] }}</h3>
+
+            <div class="player-stats">
+
+                <div>
+                    <span>AVG</span>
+                    <strong>{{ p[2] }}</strong>
+             </div>
+
+                <div>
+                    <span>OBP</span>
+                    <strong>{{ p[3] }}</strong>
+                </div>
+
+                <div>
+                    <span>SLG</span>
+                    <strong>{{ p[4] }}</strong>
+                </div>
+
+            </div>
+
+            <a href="/player/{{ p[0] }}">View Stats →</a>
+
+        </div>
+
     {% endfor %}
     {% endif %}
 </body>
