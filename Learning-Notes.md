@@ -902,3 +902,206 @@ triples = ""
 CSS를 사용하면 웹페이지의 색상, 크기, 간격, 그림자 등을 변경하여 사용자에게 더 보기 좋은 UI를 만들 수 있다.
 
 이번 프로젝트에서는 scoreboard를 야구장의 전광판처럼 디자인했다.
+
+
+---
+
+# Player Card
+
+Player History를 선수 카드 형태로 표시하는 디자인을 추가했다.
+
+선수 이름뿐만 아니라 AVG・OBP・SLG도 카드 안에 표시하여 선수의 성적을 한눈에 확인하기 쉽게 만들었다.
+
+ex:
+
+<div class="history-card">
+
+    <h3>⚾ {{ p[1] }}</h3>
+
+    <div class="player-stats">
+
+        <div>
+            <span>AVG</span>
+            <strong>{{ p[2] }}</strong>
+        </div>
+
+        <div>
+            <span>OBP</span>
+            <strong>{{ p[3] }}</strong>
+        </div>
+
+        <div>
+            <span>SLG</span>
+            <strong>{{ p[4] }}</strong>
+        </div>
+
+    </div>
+
+    <a href="/player/{{ p[0] }}">View Stats →</a>
+
+</div>
+
+
+---
+
+# display: flex
+
+CSS에서 여러 요소를 가로 방향으로 배치하기 위해 사용하는 속성이다.
+
+ex:
+
+.player-stats {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+
+---
+
+# justify-content
+
+Flexbox에서 요소의 정렬 위치를 설정하는 CSS 속성이다.
+
+ex:
+
+justify-content: center;
+
+요소를 가운데에 정렬한다.
+
+
+---
+
+# gap
+
+Flexbox에서 요소와 요소 사이의 간격을 설정하는 CSS 속성이다.
+
+ex:
+
+gap: 12px;
+
+요소 사이에 12px의 간격을 만든다.
+
+
+---
+
+# transform: translateY()
+
+요소를 위아래 방향으로 이동시키는 CSS 속성이다.
+
+ex:
+
+transform: translateY(-4px);
+
+요소를 위쪽으로 4px 이동시킨다.
+이번 프로젝트에서는 Scoreboard의 stat-box에 hover했을 때 요소가 조금 위로 올라가도록 사용했다.
+
+
+---
+
+# transition
+
+CSS 속성의 변화를 부드럽게 만들어주는 속성이다.
+
+ex:
+
+transition: 0.3s;
+
+hover와 같은 변화가 0.3초 동안 부드럽게 적용된다.
+
+
+---
+
+# CSS box-shadow
+
+HTML 요소에 그림자를 추가하는 CSS 속성이다.
+
+ex:
+
+box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+
+Player Card와 Scoreboard에 입체적인 느낌을 주기 위해 사용했다.
+
+
+---
+
+# CSS border
+
+HTML 요소의 테두리를 설정하는 CSS 속성이다.
+
+ex:
+
+border: 3px solid #52665a;
+
+Scoreboard의 바깥쪽 테두리를 설정하는 데 사용했다.
+처음에는 골드 색상의 테두리를 사용했지만, 너무 강한 느낌이 있어서 그린 계열의 테두리로 변경했다.
+
+
+---
+
+# Scoreboard Design
+
+AVG・OBP・SLG를 야구 Scoreboard처럼 표시하는 디자인을 개선했다.
+어두운 그린을 기본 색상으로 사용하고 골드 색상을 포인트로 사용했다.
+바깥쪽 테두리는 골드에서 그린 계열로 변경하여 전체적인 디자인을 더 부드럽게 만들었다.
+
+
+---
+
+# Hover Effect
+
+마우스를 요소 위에 올렸을 때 디자인이 변화하는 기능이다.
+
+ex:
+
+.stat-box:hover {
+    transform: translateY(-4px);
+}
+
+Scoreboard의 성적 박스에 마우스를 올리면 박스가 조금 위로 올라가도록 만들었다.
+
+
+---
+
+# URL Parameter
+
+URL에 선수 ID를 포함하여 특정 선수의 상세 페이지를 표시하는 방법이다.
+
+ex:
+
+<a href="/player/{{ p[0] }}">View Stats →</a>
+
+p[0]에는 데이터베이스에서 가져온 선수 ID가 들어 있다.
+
+
+---
+
+# Player ID
+
+데이터베이스에서 각각의 선수를 구분하기 위한 ID이다.
+Player Card의 View Stats를 클릭하면 Player ID를 URL로 전달하여 특정 선수의 상세 페이지를 열 수 있다.
+
+
+---
+
+# UPDATE
+
+UPDATE는 데이터베이스에 이미 저장된 데이터를 변경할 때 사용하는 SQL 명령어이다.
+이번 프로젝트에서는 앞으로 같은 선수를 다시 입력했을 때 기존 선수의 성적을 업데이트하는 기능에 사용할 예정이다.
+
+ex:
+
+UPDATE players
+SET hits = ?
+WHERE id = ?
+
+
+---
+
+# UI Design
+
+UI Design은 사용자가 보는 화면의 구조와 디자인을 만드는 것이다.
+이번 프로젝트에서는 Player Card와 Scoreboard의 디자인을 개선하고, 색상・간격・테두리・그림자 등을 조정하여 야구 느낌이 나는 UI를 만들었다.
+
+
+---
