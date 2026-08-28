@@ -7,12 +7,32 @@ cursor = conn.cursor()
 
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS players(
+
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+
     player TEXT,
+
+    at_bats INTEGER,
+
+    hits INTEGER,
+
+    singles INTEGER,
+
+    doubles INTEGER,
+
+    triples INTEGER,
+
+    walks INTEGER,
+
+    home_runs INTEGER,
+
     average TEXT,
+
     obp TEXT,
+
     slg TEXT
-    )
+
+)
     """)
 conn.commit()
 
@@ -85,11 +105,109 @@ def home():
             obp = "Cannot divide by 0"
             slg = "Cannot divide by 0"
         
-        if not error:    
-            cursor.execute("""
-                   INSERT INTO players (player, average, obp, slg)
-                   VALUES (?, ?, ?, ?)
-                   """, (player, average, obp, slg))
+        if not error:
+
+            cursor.execute(
+                "SELECT id FROM players WHERE player = ?",
+                (player,)
+            )
+
+            existing_player = cursor.fetchone()
+
+            if existing_player:
+
+                cursor.execute("""
+                    UPDATE players
+                    SET at_bats = at_bats + ?,
+                        hits = hits + ?,
+                        singles = singles + ?,
+                        doubles = doubles + ?,
+                        triples = triples + ?,
+                        walks = walks + ?,
+                        home_runs = home_runs + ?
+                    WHERE id = ?
+                """, (
+                    int(at_bats),
+                    int(hits),
+                    int(singles),
+                    int(doubles),
+                    int(triples),
+                    int(walks),
+                    int(home_runs),
+                    existing_player[0]
+                ))
+                
+                cursor.execute("""
+                    SELECT at_bats, hits, singles, doubles, triples, walks, home_runs
+                    FROM players
+                    WHERE id = ?
+                """, (existing_player[0],))
+
+                updated_player = cursor.fetchone()
+                total_at_bats = updated_player[0]
+                total_hits = updated_player[1]
+                total_singles = updated_player[2]
+                total_doubles = updated_player[3]
+                total_triples = updated_player[4]
+                total_walks = updated_player[5]
+                total_home_runs = updated_player[6]
+
+                average = f"{total_hits / total_at_bats:.3f}"
+
+                obp = f"{(total_hits + total_walks) / (total_at_bats + total_walks):.3f}"
+
+                total_bases = (
+                    total_singles
+                    + total_doubles * 2
+                    + total_triples * 3
+                    + total_home_runs * 4
+                )
+
+                slg = f"{total_bases / total_at_bats:.3f}"
+                
+                cursor.execute("""
+                    UPDATE players
+                    SET average = ?,
+                      obp = ?,
+                        slg = ?
+                    WHERE id = ?
+                """, (
+                    average,
+                    obp,
+                    slg,
+                    existing_player[0]
+                ))
+            else:
+
+                cursor.execute("""
+                    INSERT INTO players (
+                        player,
+                        at_bats,
+                        hits,
+                        singles,
+                        doubles,
+                        triples,
+                        walks,
+                        home_runs,
+                        average,
+                        obp,
+                        slg
+                    )
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """, (
+                    player,
+                    int(at_bats),
+                    int(hits),
+                    int(singles),
+                    int(doubles),
+                    int(triples),
+                    int(walks),
+                    int(home_runs),
+                    average,
+                    obp,
+                    slg
+                ))
+
             conn.commit()
 
     cursor.execute("SELECT id, player, average, obp, slg FROM players")
