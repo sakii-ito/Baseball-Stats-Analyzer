@@ -1105,3 +1105,91 @@ UI Design은 사용자가 보는 화면의 구조와 디자인을 만드는 것�
 
 
 ---
+
+# Cumulative Data
+
+Cumulative Data(누적 데이터)는 이전에 저장된 데이터에 새로운 데이터를 더해서 계속 업데이트하는 것이다.
+
+이번 프로젝트에서는 같은 선수의 At Bats, Hits, Singles, Doubles, Triples, Walks, Home Runs를 기존 데이터에 더해서 누적했다.
+
+ex:
+
+'python'
+total_at_bats = old_at_bats + new_at_bats
+total_hits = old_hits + new_hits
+
+
+---
+
+# Existing Player Check
+
+Existing Player Check는 데이터베이스에 같은 선수가 이미 존재하는지 확인하는 과정이다.
+
+이번 프로젝트에서는 SELECT를 사용하여 같은 이름의 선수가 있는지 확인한 후, 기존 선수이면 UPDATE를 사용하고 새로운 선수이면 INSERT를 사용하도록 만들었다.
+
+ex:
+
+'python'
+cursor.execute(
+    "SELECT id FROM players WHERE player = ?",
+    (player,)
+)
+
+existing_player = cursor.fetchone()
+
+if existing_player:
+    UPDATE
+else:
+    INSERT
+
+
+---
+
+# Recalculate
+
+Recalculate는 기존 데이터를 바탕으로 계산 결과를 다시 계산하는 것이다.
+
+이번 프로젝트에서는 새로운 데이터를 기존 선수의 통계에 누적한 후 AVG, OBP, SLG를 다시 계산했다.
+
+
+---
+
+# Total Bases
+
+Total Bases는 안타의 종류에 따라 타자가 기록한 총 루타를 나타내는 값이다.
+
+Singles는 1루타이므로 1,
+Doubles는 2루타이므로 2,
+Triples는 3루타이므로 3,
+Home Runs는 4루타이므로 4를 곱한다.
+
+ex:
+
+'python'
+total_bases = (
+    singles
+    + doubles * 2
+    + triples * 3
+    + home_runs * 4
+)
+
+
+---
+
+# Database Record
+
+Database Record는 데이터베이스에 저장되어 있는 하나의 데이터 기록이다.
+
+이번 프로젝트에서는 한 명의 선수가 하나의 record가 되며, 선수 이름과 누적 타격 데이터를 함께 저장한다.
+
+
+---
+
+# Data Persistence
+
+Data Persistence는 프로그램을 종료하거나 새로운 데이터를 입력한 후에도 데이터가 계속 저장되어 있는 것이다.
+
+이번 프로젝트에서는 SQLite 데이터베이스에 선수의 통계를 저장하기 때문에 Flask를 다시 실행해도 저장된 선수 데이터를 사용할 수 있다.
+
+
+---
