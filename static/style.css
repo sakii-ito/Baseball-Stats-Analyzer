@@ -260,17 +260,18 @@ button:hover {
 
 .player-stats {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
-    margin: 15px 0;
+    gap: 10px;
 }
 
 .player-stats div {
-    background-color: #243b2f;
+    background-color: #3f4843;
     color: white;
     padding: 10px;
     border-radius: 10px;
-    min-width: 65px;
+    width: 88px;
+    box-sizing: border-box;
 }
 
 .player-stats span {
@@ -294,4 +295,8 @@ button:hover {
 
 .history-card > a:hover {
     color: #d66b3d;
+}
+
+.history-card .player-stats {
+    grid-template-columns: repeat(3, 1fr);
 }

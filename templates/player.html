@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -9,28 +10,90 @@
 
 <body>
 
-    <h1>⚾ Player Stats</h1>
+```
+<h1>⚾ Player Stats</h1>
 
-    <div class="result-card">
+<div class="result-card">
 
-        <h2>{{ player[0] }}</h2>
+    <h2>{{ player[0] }}</h2>
 
-        <h3>Batting Average</h3>
-        <p>{{ player[1] }}</p>
+    <h3>Batting Stats</h3>
 
-        <h3>On-Base Percentage</h3>
-        <p>{{ player[2] }}</p>
+    <div class="player-stats">
 
-        <h3>Slugging Percentage</h3>
-        <p>{{ player[3] }}</p>
+        <div>
+            <span>At Bats</span>
+            <strong>{{ player[1] }}</strong>
+        </div>
 
-        <form action="/player/{{ request.view_args.player_id }}/delete" method="POST">
-            <button type="submit">🗑 Delete</button>
-        </form>
+        <div>
+            <span>Hits</span>
+            <strong>{{ player[2] }}</strong>
+        </div>
 
-        <a href="/">← Back to Home</a>
+        <div>
+            <span>Singles</span>
+            <strong>{{ player[3] }}</strong>
+        </div>
+
+        <div>
+            <span>Doubles</span>
+            <strong>{{ player[4] }}</strong>
+        </div>
+
+        <div>
+            <span>Triples</span>
+            <strong>{{ player[5] }}</strong>
+        </div>
+
+        <div>
+            <span>Walks</span>
+            <strong>{{ player[6] }}</strong>
+        </div>
+
+        <div>
+            <span>Home Runs</span>
+            <strong>{{ player[7] }}</strong>
+        </div>
 
     </div>
 
+    <hr>
+
+    <h3>Advanced Stats</h3>
+
+    <div class="scoreboard">
+
+        <div class="stat-box">
+            <h3>AVG</h3>
+            <p>{{ player[8] }}</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>OBP</h3>
+            <p>{{ player[9] }}</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>SLG</h3>
+            <p>{{ player[10] }}</p>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <form action="{{ url_for('delete_player', player_id=request.view_args.player_id) }}" method="POST">
+        <button type="submit">🗑 Delete</button>
+    </form>
+
+    <br>
+
+    <a href="/">← Back to Home</a>
+
+</div>
+```
+
 </body>
+
 </html>

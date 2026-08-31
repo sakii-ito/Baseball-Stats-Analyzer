@@ -236,7 +236,12 @@ def home():
 @app.route("/player/<int:player_id>")
 def player_detail(player_id):
     cursor.execute(
-        "SELECT player, average, obp, slg FROM players WHERE id = ?",
+        """
+        SELECT player, at_bats, hits, singles, doubles, triples,
+           walks, home_runs, average, obp, slg
+        FROM players
+        WHERE id = ?
+        """,
         (player_id,)
     )
 
