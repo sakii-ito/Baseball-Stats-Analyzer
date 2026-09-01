@@ -1193,3 +1193,53 @@ Data Persistence는 프로그램을 종료하거나 새로운 데이터를 입�
 
 
 ---
+
+# flex-wrap
+
+Flexbox에서 요소가 한 줄에 모두 들어가지 않을 때
+다음 줄로 자동으로 줄바꿈하는 속성이다.
+
+ex:
+
+.player-stats {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+이번 프로젝트에서는 Player Stats의 여러 통계 카드를
+화면 크기에 맞게 여러 줄로 배치하기 위해 사용했다.
+
+
+---
+
+# justify-content: center
+
+Flexbox에서 요소들을 가로 방향의 가운데에 배치하는 속성이다.
+
+ex:
+
+.player-stats {
+    display: flex;
+    justify-content: center;
+}
+
+이번 프로젝트에서는 Player Stats의 통계 카드가
+한쪽으로 치우치지 않고 가운데에 오도록 만들기 위해 사용했다.
+
+
+---
+
+# @media
+
+화면 크기와 같은 조건에 따라 다른 CSS를 적용할 수 있는 기능이다.
+
+ex:
+
+@media (max-width: 600px) {
+    .player-stats div {
+        width: 85px;
+    }
+}
+
+이번 프로젝트에서는 화면이 작아졌을 때
+Player Stats의 카드 크기를 조정하여 레이아웃이 깨지지 않도록 사용했다.
