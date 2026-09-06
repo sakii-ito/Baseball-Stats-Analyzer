@@ -30,17 +30,26 @@ CREATE TABLE IF NOT EXISTS players(
 
     obp TEXT,
 
-    slg TEXT
+    slg TEXT,
+    
+    ops TEXT
 
 )
     """)
 conn.commit()
+
+try:
+    cursor.execute("ALTER TABLE players ADD COLUMN ops TEXT")
+    conn.commit()
+except sqlite3.OperationalError:
+    pass
 
 @app.route("/", methods=["GET", "POST"])
 def home():
     average = ""
     obp = ""
     slg = ""
+    ops = ""
     
     player = ""
     at_bats = ""
@@ -99,6 +108,7 @@ def home():
                 + int(home_runs) * 4
             )
             slg = f"{total_bases / int(at_bats):.3f}"
+            ops = f"{float(obp) + float(slg):.3f}"
         
         else:
             average = "Cannot divide by 0"
@@ -164,17 +174,20 @@ def home():
                 )
 
                 slg = f"{total_bases / total_at_bats:.3f}"
+                ops = f"{float(obp) + float(slg):.3f}"
                 
                 cursor.execute("""
                     UPDATE players
                     SET average = ?,
-                      obp = ?,
-                        slg = ?
+                        obp = ?,
+                        slg = ?,
+                        ops = ?
                     WHERE id = ?
                 """, (
                     average,
                     obp,
                     slg,
+                    ops,
                     existing_player[0]
                 ))
             else:
@@ -191,9 +204,10 @@ def home():
                         home_runs,
                         average,
                         obp,
-                        slg
+                        slg,
+                        ops
                     )
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """, (
                     player,
                     int(at_bats),
@@ -205,12 +219,13 @@ def home():
                     int(home_runs),
                     average,
                     obp,
-                    slg
+                    slg,
+                    ops
                 ))
 
             conn.commit()
 
-    cursor.execute("SELECT id, player, average, obp, slg FROM players")
+    cursor.execute("SELECT id, player, average, obp, slg, ops FROM players")
     players = cursor.fetchall()
     
     return render_template(
@@ -238,7 +253,7 @@ def player_detail(player_id):
     cursor.execute(
         """
         SELECT player, at_bats, hits, singles, doubles, triples,
-           walks, home_runs, average, obp, slg
+           walks, home_runs, average, obp, slg, ops
         FROM players
         WHERE id = ?
         """,
