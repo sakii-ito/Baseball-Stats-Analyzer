@@ -1243,3 +1243,66 @@ ex:
 
 이번 프로젝트에서는 화면이 작아졌을 때
 Player Stats의 카드 크기를 조정하여 레이아웃이 깨지지 않도록 사용했다.
+
+
+---
+
+# ALTER TABLE
+
+ALTER TABLE은 기존 데이터베이스 테이블의 구조를 변경할 때 사용하는 SQL문이다.
+
+기존 테이블에 새로운 컬럼을 추가할 수 있다.
+
+ex:
+```sql
+ALTER TABLE players ADD COLUMN ops TEXT;
+```
+
+기존 데이터를 삭제하지 않고 새로운 컬럼을 추가할 때 사용할 수 있다.
+
+---
+
+# CREATE TABLE IF NOT EXISTS의 한계
+
+CREATE TABLE IF NOT EXISTS는 테이블이 존재하지 않을 경우에만 테이블을 생성한다.
+
+이미 테이블이 존재하면 새로운 컬럼을 추가하거나 기존 테이블의 구조를 변경하지 않는다.
+
+따라서 기존 테이블에 새로운 컬럼을 추가해야 할 경우에는 `ALTER TABLE`을 사용해야 한다.
+
+---
+
+# SQL Placeholder 개수
+
+SQL문의 `?` placeholder 개수와 전달하는 값의 개수는 서로 일치해야 한다.
+
+ex:
+```python
+cursor.execute(
+    "INSERT INTO players (player, average, ops) VALUES (?, ?, ?)",
+    (player, average, ops)
+)
+```
+
+3개의 `?`가 있으므로 전달하는 값도 3개가 필요하다.
+
+---
+
+# SQL 결과의 인덱스
+
+SELECT로 여러 개의 컬럼을 조회하면 조회된 데이터는 순서에 따라 인덱스로 접근할 수 있다.
+
+ex:
+```sql
+SELECT player, average, obp, slg, ops FROM players
+```
+
+```html
+{{ p[0] }}
+{{ p[1] }}
+{{ p[2] }}
+{{ p[3] }}
+{{ p[4] }}
+```
+
+SELECT 컬럼을 추가하거나 순서를 변경하면 HTML에서 사용하는 인덱스도 함께 확인해야 한다.
