@@ -92,7 +92,8 @@ HTML 폼의 데이터를 Flask 서버로 전송하는 방식이다.
 # name
 
 HTML과 Python을 연결하는 이름이다.
-ex: <input name="hits"> -> request.form["hits"]
+ex: 
+<input name="hits"> -> request.form["hits"]
 
 
 ---
@@ -107,7 +108,8 @@ ex: <input name="hits"> -> request.form["hits"]
 # request.form
 
 HTML에서 입력한 값을 Python으로 가져온다.
-ex: request.form["hits"]
+ex: 
+request.form["hits"]
 
 
 ---
@@ -115,7 +117,8 @@ ex: request.form["hits"]
 # int()
 
 문자열을 정수로 변환한다.
-ex: int("20") -> 20
+ex: 
+int("20") -> 20
 
 
 ---
@@ -123,7 +126,8 @@ ex: int("20") -> 20
 # if 
 
 조건이 참일 때만 코드를 실행한다.
-ex: if at_bats > 0:
+ex: 
+if at_bats > 0:
 
 
 ---
@@ -131,7 +135,8 @@ ex: if at_bats > 0:
 # round()
 
 소수점을 원하는 자리까지 반올림한다.
-ex: round(8 / 20, 3) -> 0.4
+ex: 
+round(8 / 20, 3) -> 0.4
 
 
 ---
@@ -139,7 +144,8 @@ ex: round(8 / 20, 3) -> 0.4
 # render_template()
 
 Python의 데이터를 HTML에 전달하여 화면을 출력하는 함수이다.
-ex: return render_template("index.html")
+ex: 
+return render_template("index.html")
 
 
 ---
@@ -147,7 +153,8 @@ ex: return render_template("index.html")
 # Jinja2
 
 Python 변수를 HTML에 표시하기 위한 템플릿 엔진이다.
-ex: {{ average }}
+ex: 
+{{ average }}
 
 
 ---
@@ -178,7 +185,8 @@ GitHub에서 가장 먼저 표시된다.
 # value
 
 입력창에 값을 표시하는 속성이다.
-ex: <input value="{{ player }}">
+ex: 
+<input value="{{ player }}">
 전송 후에도 입력한 내용을 유지할 수 있다.
 
 
@@ -195,8 +203,9 @@ ex: <input value="{{ player }}">
 # Multiple Variables
 
 render_template()는 여러  개의 데이터를 HTML로 전달할 수 있다.
-ex: plyer=plyer
-    average=average
+ex: 
+plyer=plyer
+average=average
 
 
 ---
@@ -204,8 +213,9 @@ ex: plyer=plyer
 # Variable Initialization
 
 변수를 사용하기 전에 초기값을 설정하는 것이다.
-ex: obp = None
-    walks = ""
+ex:
+obp = None
+walks = ""
 미리 초기화하면 변수가 없어서 발생하는 오류를 방지할 수 있다.
 
 
@@ -477,7 +487,6 @@ if hit_total != int(hits):
 URL에 값을 포함하여 특정 데이터를 구분할 수 있다.
 
 ex:
-
 'python'
 @app.route("/player/<int:player_id>")
 
@@ -489,7 +498,6 @@ ex:
 WHERE를 사용하면 조건에 맞는 데이터만 조회할 수 있다.
 
 ex:
-
 'python'
 SELECT player, average, obp, slg
 FROM players
@@ -503,7 +511,6 @@ WHERE id = ?
 fetchone()은 조회 결과에서 하나의 데이터를 가져오는 메서드이다.
 
 ex:
-
 'python'
 player = cursor.fetchone()
 
@@ -515,7 +522,6 @@ player = cursor.fetchone()
 Route를 사용하면 URL에 따라 다른 함수를 실행할 수 있다.
 
 ex:
-
 'python'
 @app.route("/player/<int:player_id>")
 def player_detail(player_id):
@@ -529,7 +535,6 @@ def player_detail(player_id):
 DELETE는 데이터베이스에서 데이터를 삭제할 때 사용하는 SQL 명령어이다.
 
 ex:
-
 'python'
 DELETE FROM players WHERE id = ?
 
@@ -541,7 +546,6 @@ DELETE FROM players WHERE id = ?
 WHERE를 사용하면 특정 조건에 맞는 데이터만 삭제할 수 있다.
 
 ex:
-
 'python'
 DELETE FROM players WHERE id = ?
 
@@ -553,7 +557,6 @@ DELETE FROM players WHERE id = ?
 POST는 서버에 데이터를 보내거나 데이터를 변경할 때 사용할 수 있다.
 
 ex:
-
 'python'
 @app.route("/player/<int:player_id>/delete", methods=["POST"])
 
@@ -565,7 +568,6 @@ ex:
 redirect()는 작업이 완료된 후 다른 URL로 이동할 때 사용한다.
 
 ex:
-
 'python'
 return redirect("/")
 
@@ -577,7 +579,6 @@ return redirect("/")
 Flask에서 SQL 쿼리를 실행하고 commit()하면 데이터베이스의 내용을 변경할 수 있다.
 
 ex:
-
 'python'
 cursor.execute("DELETE FROM players WHERE id = ?", (player_id,))
 conn.commit()
@@ -913,7 +914,6 @@ Player History를 선수 카드 형태로 표시하는 디자인을 추가했다
 선수 이름뿐만 아니라 AVG・OBP・SLG도 카드 안에 표시하여 선수의 성적을 한눈에 확인하기 쉽게 만들었다.
 
 ex:
-
 <div class="history-card">
 
     <h3>⚾ {{ p[1] }}</h3>
@@ -949,7 +949,6 @@ ex:
 CSS에서 여러 요소를 가로 방향으로 배치하기 위해 사용하는 속성이다.
 
 ex:
-
 .player-stats {
     display: flex;
     justify-content: center;
@@ -964,7 +963,6 @@ ex:
 Flexbox에서 요소의 정렬 위치를 설정하는 CSS 속성이다.
 
 ex:
-
 justify-content: center;
 
 요소를 가운데에 정렬한다.
@@ -977,7 +975,6 @@ justify-content: center;
 Flexbox에서 요소와 요소 사이의 간격을 설정하는 CSS 속성이다.
 
 ex:
-
 gap: 12px;
 
 요소 사이에 12px의 간격을 만든다.
@@ -990,7 +987,6 @@ gap: 12px;
 요소를 위아래 방향으로 이동시키는 CSS 속성이다.
 
 ex:
-
 transform: translateY(-4px);
 
 요소를 위쪽으로 4px 이동시킨다.
@@ -1004,7 +1000,6 @@ transform: translateY(-4px);
 CSS 속성의 변화를 부드럽게 만들어주는 속성이다.
 
 ex:
-
 transition: 0.3s;
 
 hover와 같은 변화가 0.3초 동안 부드럽게 적용된다.
@@ -1017,7 +1012,6 @@ hover와 같은 변화가 0.3초 동안 부드럽게 적용된다.
 HTML 요소에 그림자를 추가하는 CSS 속성이다.
 
 ex:
-
 box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
 
 Player Card와 Scoreboard에 입체적인 느낌을 주기 위해 사용했다.
@@ -1030,7 +1024,6 @@ Player Card와 Scoreboard에 입체적인 느낌을 주기 위해 사용했다.
 HTML 요소의 테두리를 설정하는 CSS 속성이다.
 
 ex:
-
 border: 3px solid #52665a;
 
 Scoreboard의 바깥쪽 테두리를 설정하는 데 사용했다.
@@ -1053,7 +1046,6 @@ AVG・OBP・SLG를 야구 Scoreboard처럼 표시하는 디자인을 개선했�
 마우스를 요소 위에 올렸을 때 디자인이 변화하는 기능이다.
 
 ex:
-
 .stat-box:hover {
     transform: translateY(-4px);
 }
@@ -1068,7 +1060,6 @@ Scoreboard의 성적 박스에 마우스를 올리면 박스가 조금 위로 �
 URL에 선수 ID를 포함하여 특정 선수의 상세 페이지를 표시하는 방법이다.
 
 ex:
-
 <a href="/player/{{ p[0] }}">View Stats →</a>
 
 p[0]에는 데이터베이스에서 가져온 선수 ID가 들어 있다.
@@ -1090,7 +1081,6 @@ UPDATE는 데이터베이스에 이미 저장된 데이터를 변경할 때 사�
 이번 프로젝트에서는 앞으로 같은 선수를 다시 입력했을 때 기존 선수의 성적을 업데이트하는 기능에 사용할 예정이다.
 
 ex:
-
 UPDATE players
 SET hits = ?
 WHERE id = ?
@@ -1113,7 +1103,6 @@ Cumulative Data(누적 데이터)는 이전에 저장된 데이터에 새로운 
 이번 프로젝트에서는 같은 선수의 At Bats, Hits, Singles, Doubles, Triples, Walks, Home Runs를 기존 데이터에 더해서 누적했다.
 
 ex:
-
 'python'
 total_at_bats = old_at_bats + new_at_bats
 total_hits = old_hits + new_hits
@@ -1128,7 +1117,6 @@ Existing Player Check는 데이터베이스에 같은 선수가 이미 존재하
 이번 프로젝트에서는 SELECT를 사용하여 같은 이름의 선수가 있는지 확인한 후, 기존 선수이면 UPDATE를 사용하고 새로운 선수이면 INSERT를 사용하도록 만들었다.
 
 ex:
-
 'python'
 cursor.execute(
     "SELECT id FROM players WHERE player = ?",
@@ -1164,7 +1152,6 @@ Triples는 3루타이므로 3,
 Home Runs는 4루타이므로 4를 곱한다.
 
 ex:
-
 'python'
 total_bases = (
     singles
@@ -1200,7 +1187,6 @@ Flexbox에서 요소가 한 줄에 모두 들어가지 않을 때
 다음 줄로 자동으로 줄바꿈하는 속성이다.
 
 ex:
-
 .player-stats {
     display: flex;
     flex-wrap: wrap;
@@ -1217,7 +1203,6 @@ ex:
 Flexbox에서 요소들을 가로 방향의 가운데에 배치하는 속성이다.
 
 ex:
-
 .player-stats {
     display: flex;
     justify-content: center;
@@ -1234,7 +1219,6 @@ ex:
 화면 크기와 같은 조건에 따라 다른 CSS를 적용할 수 있는 기능이다.
 
 ex:
-
 @media (max-width: 600px) {
     .player-stats div {
         width: 85px;
@@ -1259,6 +1243,7 @@ ALTER TABLE players ADD COLUMN ops TEXT;
 ```
 
 기존 데이터를 삭제하지 않고 새로운 컬럼을 추가할 때 사용할 수 있다.
+
 
 ---
 
