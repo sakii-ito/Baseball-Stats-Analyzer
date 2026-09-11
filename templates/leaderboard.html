@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Player Leaderboard - Baseball Stats Analyzer</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5fbf9;
+            color: #244238;
+            min-height: 100vh;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 20px 15px 16px;
+            background-color: #d9f1f4;
+            border-bottom: 1px solid #c6dddd;
+        }
+
+        .page-header h1 {
+            margin: 0;
+            font-size: 32px;
+            color: #176b3a;
+        }
+
+        .page-header p {
+            margin: 6px 0 0;
+            color: #4d625b;
+            font-size: 13px;
+        }
+
+        .leaderboard {
+            width: 92%;
+            max-width: 650px;
+            margin: 22px auto;
+        }
+
+        .leaderboard-card {
+            background-color: white;
+            border-radius: 16px;
+            padding: 16px 18px;
+            margin-bottom: 14px;
+            text-align: center;
+            border: 2px solid #d5e8dc;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .leaderboard-card.first {
+            border: 3px solid #d4af37;
+            padding: 20px 18px;
+        }
+
+        .rank {
+            font-size: 25px;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .player-name {
+            margin: 0 0 13px;
+            color: #176b3a;
+            font-size: 21px;
+        }
+
+        .first .player-name {
+            font-size: 25px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            width: 78px;
+            background-color: #3f4843;
+            color: white;
+            border-radius: 9px;
+            padding: 8px 4px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 11px;
+            margin-bottom: 3px;
+        }
+
+        .stat span {
+            display: block;
+            color: #f2c94c;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .ops-stat {
+            background-color: #1f4433;
+            border: 2px solid #d4af37;
+        }
+
+        .ops-stat span {
+            font-size: 16px;
+        }
+
+        .back-area {
+            text-align: center;
+            margin: 22px 0 35px;
+        }
+
+        .back-button {
+            display: inline-block;
+            background-color: #176b3a;
+            color: white;
+            text-decoration: none;
+            padding: 9px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        .empty-message {
+            background-color: white;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            color: #66756f;
+        }
+
+        @media (max-width: 600px) {
+
+            .page-header h1 {
+                font-size: 27px;
+            }
+
+            .leaderboard {
+                width: 94%;
+                margin-top: 18px;
+            }
+
+            .leaderboard-card {
+                padding: 15px 10px;
+            }
+
+            .stat {
+                width: 75px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="page-header">
+
+        <h1>🏆 Player Leaderboard</h1>
+
+        <p>Players ranked by OPS</p>
+
+    </div>
+
+
+    <div class="leaderboard">
+
+        {% if players %}
+
+            {% for p in players %}
+
+                <div class="leaderboard-card
+                    {% if loop.index == 1 %}first{% endif %}">
+
+                    <div class="rank">
+
+                        {% if loop.index == 1 %}
+                            🥇
+                        {% elif loop.index == 2 %}
+                            🥈
+                        {% elif loop.index == 3 %}
+                            🥉
+                        {% else %}
+                            {{ loop.index }}
+                        {% endif %}
+
+                    </div>
+
+                    <h2 class="player-name">
+                        {{ p[0] }}
+                    </h2>
+
+                    <div class="stats">
+
+                        <div class="stat">
+                            <strong>AVG</strong>
+                            <span>{{ p[1] }}</span>
+                        </div>
+
+                        <div class="stat">
+                            <strong>OBP</strong>
+                            <span>{{ p[2] }}</span>
+                        </div>
+
+                        <div class="stat">
+                            <strong>SLG</strong>
+                            <span>{{ p[3] }}</span>
+                        </div>
+
+                        <div class="stat ops-stat">
+                            <strong>OPS</strong>
+                            <span>{{ p[4] }}</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="empty-message">
+                No players registered yet.
+            </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <div class="back-area">
+
+        <a href="/" class="back-button">
+            ← Back to Home
+        </a>
+
+    </div>
+
+</body>
+</html>

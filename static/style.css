@@ -300,3 +300,59 @@ button:hover {
 .history-card .player-stats {
     grid-template-columns: repeat(3, 1fr);
 }
+
+/* Leaderboard */
+
+.leaderboard-card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 15px;
+    margin: 15px auto;
+    max-width: 700px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.leaderboard-card h2 {
+    margin: 5px 0 15px;
+    color: #176b3a;
+}
+
+.rank-first {
+    border: 3px solid #d4af37;
+}
+
+.rank-second {
+    border: 3px solid #b8b8b8;
+}
+
+.rank-third {
+    border: 3px solid #cd7f32;
+}
+
+.leaderboard-card .player-stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.leaderboard-card .player-stats div {
+    width: 90px;
+}
+
+.leaderboard-button {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 10px 22px;
+    background-color: #176b3a;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+
+.leaderboard-button:hover {
+    transform: translateY(-2px);
+}

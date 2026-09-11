@@ -44,6 +44,14 @@ try:
 except sqlite3.OperationalError:
     pass
 
+cursor.execute("""
+    UPDATE players
+    SET ops = printf('%.3f', CAST(obp AS REAL) + CAST(slg AS REAL))
+    WHERE ops IS NULL
+""")
+
+conn.commit()
+
 @app.route("/", methods=["GET", "POST"])
 def home():
     average = ""
@@ -247,6 +255,19 @@ def home():
         home_runs=home_runs,
         error=error
     )
+
+@app.route("/leaderboard")
+def leaderboard():
+
+    cursor.execute("""
+        SELECT player, average, obp, slg, ops
+        FROM players
+        ORDER BY CAST(ops AS REAL) DESC
+    """)
+
+    players = cursor.fetchall()
+
+    return render_template("leaderboard.html", players=players)
 
 @app.route("/player/<int:player_id>")
 def player_detail(player_id):
