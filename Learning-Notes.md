@@ -1291,3 +1291,67 @@ SELECT player, average, obp, slg, ops FROM players
 ```
 
 SELECT 컬럼을 추가하거나 순서를 변경하면 HTML에서 사용하는 인덱스도 함께 확인해야 한다.
+
+
+---
+
+# SQL ORDER BY
+
+ORDER BY는 SQL 조회 결과를 특정 컬럼을 기준으로 정렬할 때 사용하는 문법이다.
+ex:
+
+    SELECT player, ops
+    FROM players
+    ORDER BY CAST(ops AS REAL) DESC
+
+`DESC`를 사용하면 큰 값부터 작은 값 순서로 정렬할 수 있다.
+
+반대로 `ASC`를 사용하면 작은 값부터 큰 값 순서로 정렬할 수 있다.
+
+
+---
+
+# CAST
+
+CAST는 SQL에서 데이터를 다른 자료형으로 변환할 때 사용하는 문법이다.
+ex:
+
+    CAST(ops AS REAL)
+
+OPS가 TEXT로 저장되어 있어도 `REAL`로 변환하면 숫자로 비교하고 정렬할 수 있다.
+
+
+---
+
+# Jinja2 loop.index
+
+Jinja2의 `loop.index`는 반복문에서 현재 순서의 번호를 가져올 때 사용할 수 있다.
+ex:
+
+    {% for p in players %}
+        {{ loop.index }}
+        {{ p[0] }}
+    {% endfor %}
+
+첫 번째 반복에서는 `1`, 두 번째 반복에서는 `2`처럼 표시된다.
+Leaderboard에서 선수의 순위를 표시할 때 사용할 수 있다.
+
+
+---
+
+# CSS max-width
+
+`max-width`는 요소가 가질 수 있는 최대 너비를 설정하는 CSS 속성이다.
+ex:
+
+    .leaderboard {
+        width: 80%;
+        max-width: 500px;
+    }
+
+화면이 커져도 요소가 너무 넓어지지 않도록 제한할 수 있다.
+
+`width`와 함께 사용하면 화면 크기에 따라 자연스럽게 크기가 조절되는 레이아웃을 만들 수 있다.
+
+
+---
