@@ -44,6 +44,32 @@
             margin: 8px auto;
         }
 
+                .sort-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin: 0 auto 10px;
+        }
+
+        .sort-button {
+            display: inline-block;
+            background-color: white;
+            color: #176b3a;
+            text-decoration: none;
+            border: 2px solid #d5e8dc;
+            border-radius: 18px;
+            padding: 7px 13px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .sort-button.active {
+            background-color: #176b3a;
+            color: white;
+            border-color: #176b3a;
+        }
+
         .leaderboard-card {
             background-color: white;
             border-radius: 16px;
@@ -171,6 +197,29 @@
 
 
     <div class="leaderboard">
+                <div class="sort-buttons">
+
+            <a href="/leaderboard?sort=average"
+               class="sort-button {% if sort == 'average' %}active{% endif %}">
+                AVG
+            </a>
+
+            <a href="/leaderboard?sort=obp"
+               class="sort-button {% if sort == 'obp' %}active{% endif %}">
+                OBP
+            </a>
+
+            <a href="/leaderboard?sort=slg"
+               class="sort-button {% if sort == 'slg' %}active{% endif %}">
+                SLG
+            </a>
+
+            <a href="/leaderboard?sort=ops"
+               class="sort-button {% if sort == 'ops' %}active{% endif %}">
+                OPS
+            </a>
+
+        </div>
 
         {% if players %}
 

@@ -259,16 +259,31 @@ def home():
 @app.route("/leaderboard")
 def leaderboard():
 
-    cursor.execute("""
+    sort = request.args.get("sort", "ops")
+
+    if sort == "average":
+        order_column = "average"
+    elif sort == "obp":
+        order_column = "obp"
+    elif sort == "slg":
+        order_column = "slg"
+    else:
+        order_column = "ops"
+
+    cursor.execute(f"""
         SELECT player, average, obp, slg, ops
         FROM players
-        ORDER BY CAST(ops AS REAL) DESC
+        ORDER BY CAST({order_column} AS REAL) DESC
     """)
 
     players = cursor.fetchall()
 
-    return render_template("leaderboard.html", players=players)
-
+    return render_template(
+        "leaderboard.html",
+        players=players,
+        sort=sort
+    )
+    
 @app.route("/player/<int:player_id>")
 def player_detail(player_id):
     cursor.execute(
