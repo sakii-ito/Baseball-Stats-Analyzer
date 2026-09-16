@@ -1355,3 +1355,65 @@ ex:
 
 
 ---
+
+# SQL ORDER BY
+
+ORDER BY는 SQL 조회 결과를 특정 컬럼의 값을 기준으로 정렬할 때 사용하는 명령어이다.
+DESC를 사용하면 큰 값부터 작은 값 순서로 정렬할 수 있다.
+
+ex:
+SELECT player, average
+FROM players
+ORDER BY average DESC
+
+이번 프로젝트에서는 선수의 AVG, OBP, SLG, OPS를 높은 값부터 정렬하여 Leaderboard에 표시하기 위해 사용했다.
+
+
+---
+
+# CAST
+
+CAST는 데이터의 자료형을 다른 자료형으로 변환할 때 사용하는 SQL 함수이다.
+이번 프로젝트에서는 TEXT로 저장된 타격 기록을 숫자로 변환하여 정확하게 정렬하기 위해 사용했다.
+
+ex:
+ORDER BY CAST(ops AS REAL) DESC
+
+TEXT로 저장된 "0.900", "0.800" 등의 값을 숫자로 변환한 후 내림차순으로 정렬할 수 있다.
+
+
+---
+
+# Jinja2 loop.index
+
+loop.index는 Jinja2의 for문에서 현재 반복의 순서를 나타내는 값이다.
+첫 번째 반복은 1, 두 번째 반복은 2, 세 번째 반복은 3처럼 시작한다.
+
+ex:
+{% for p in players %}
+    {{ loop.index }}
+    {{ p[0] }}
+{% endfor %}
+
+이번 프로젝트에서는 Leaderboard의 순위를 표시하고,
+1위부터 3위까지 🥇🥈🥉 메달을 표시하는 데 사용했다.
+
+
+---
+
+# CSS max-width
+
+max-width는 요소의 최대 너비를 설정하는 CSS 속성이다.
+
+화면이 커져도 요소가 설정한 최대 너비보다 커지지 않도록 할 수 있다.
+
+ex:
+.leaderboard {
+    width: 80%;
+    max-width: 500px;
+}
+
+이번 프로젝트에서는 Leaderboard가 화면 전체로 너무 넓어지지 않도록 최대 너비를 설정했다.
+
+
+---
