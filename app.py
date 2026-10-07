@@ -271,7 +271,7 @@ def leaderboard():
         order_column = "ops"
 
     cursor.execute(f"""
-        SELECT player, average, obp, slg, ops
+        SELECT id, player, average, obp, slg, ops
         FROM players
         ORDER BY CAST({order_column} AS REAL) DESC
     """)

@@ -111,6 +111,11 @@
             font-size: 22px;
         }
 
+        .player-link {
+            color: inherit;
+            text-decoration: none;
+        }
+        
         .first .player-name {
             font-size: 25px;
         }
@@ -264,29 +269,31 @@
                     </div>
 
                     <h2 class="player-name">
-                        {{ p[0] }}
+                        <a href="/player/{{ p[0] }}" class="player-link">
+                            {{ p[1] }}
+                        </a>
                     </h2>
 
                     <div class="stats">
 
                         <div class="stat">
                             <strong>AVG</strong>
-                            <span>{{ p[1] }}</span>
-                        </div>
-
-                        <div class="stat">
-                            <strong>OBP</strong>
                             <span>{{ p[2] }}</span>
                         </div>
 
                         <div class="stat">
-                            <strong>SLG</strong>
+                            <strong>OBP</strong>
                             <span>{{ p[3] }}</span>
+                        </div>
+
+                        <div class="stat">
+                            <strong>SLG</strong>
+                            <span>{{ p[4] }}</span>
                         </div>
 
                         <div class="stat ops-stat">
                             <strong>OPS</strong>
-                            <span>{{ p[4] }}</span>
+                            <span>{{ p[5] }}</span>
                         </div>
 
                     </div>
