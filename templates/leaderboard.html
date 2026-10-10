@@ -99,6 +99,14 @@
             box-shadow: 0 6px 16px rgba(212, 175, 55, 0.25)
         }
 
+        .leaderboard-card.second {
+            border-color: #c0c0c0;
+        }
+
+        .leaderboard-card.third {
+            border-color: #cd7f32;
+        }
+
         .rank {
             font-size: 25px;
             line-height: 1;
@@ -253,7 +261,10 @@
             {% for p in players %}
 
                 <div class="leaderboard-card
-                    {% if loop.index == 1 %}first{% endif %}">
+                    {% if loop.index == 1 %}first
+                    {% elif loop.index == 2 %}second
+                    {% elif loop.index == 3 %}third
+                    {% endif %}">
 
                     <div class="rank">
 
