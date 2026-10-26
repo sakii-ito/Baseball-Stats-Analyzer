@@ -1,7 +1,7 @@
 
 <div align="center">
 
-# ⚾🌱 Baseball Stats Analyzer
+# ⚾🌱 Baseball Stats Analyzer 🌱⚾
 
 ### ୨୧ Your little baseball data notebook ୨୧
 
