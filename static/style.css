@@ -356,3 +356,25 @@ button:hover {
 .leaderboard-button:hover {
     transform: translateY(-2px);
 }
+
+.dashboard-card {
+    background: #e8f5e9;
+    border: 2px solid #a5d6a7;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    text-align: center;
+    max-width: 300px;
+}
+
+.dashboard-card h2 {
+    color: #388e3c;
+    font-size: 18px;
+}
+
+.dashboard-card p {
+    color: #2e7d32;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 10px 0;
+}

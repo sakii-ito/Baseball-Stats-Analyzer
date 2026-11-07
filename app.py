@@ -235,6 +235,7 @@ def home():
 
     cursor.execute("SELECT id, player, average, obp, slg, ops FROM players")
     players = cursor.fetchall()
+    player_count = len(players)
     
     return render_template(
         "index.html", 
@@ -242,6 +243,7 @@ def home():
         obp=obp,
         slg=slg,
         players=players,
+        player_count=player_count,
         
         player=player,
         at_bats=at_bats,
