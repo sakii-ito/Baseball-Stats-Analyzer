@@ -5,7 +5,7 @@
 
 # ⚾ Baseball Stats Analyzer
 
-### 🍀 나만의 작은 야구 기록 노트
+### 🍀 나만의 작은 야구 기록 노트 🍀
 
 *My little notebook for baseball statistics ♡*
 
@@ -91,7 +91,7 @@
 
 **Made with ♡, Python & baseball spirit**
 
-오늘도 한 줄씩 성장 중! 🍀
+🍀 오늘도 한 줄씩 성장 중! 🍀
 
 <sub>Thank you for visiting my little project ♡</sub>
 
