@@ -3,7 +3,7 @@
 
 🌿 ୨୧ ──────────────── ୨୧ 🌿
 
-# ⚾ Baseball Stats Analyzer
+# ⚾ Baseball Stats Analyzer ⚾
 
 ### 🍀 나만의 작은 야구 기록 노트 🍀
 
