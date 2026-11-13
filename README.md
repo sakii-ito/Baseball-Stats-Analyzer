@@ -1,7 +1,7 @@
 
 <div align="center">
 
-🌿 ୨୧ ──────────────── ୨୧ 🌿
+ ୨୧ ──────────────── ୨୧ 
 
 # ⚾ Baseball Stats Analyzer ⚾
 
