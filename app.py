@@ -85,6 +85,19 @@ def home():
         walks = request.form["walks"]
         home_runs = request.form["home_runs"]
         
+        stats = [
+            int(at_bats),
+            int(hits),
+            int(singles),
+            int(doubles),
+            int(triples),
+            int(walks),
+            int(home_runs)
+        ]
+        
+        if any(stat < 0 for stat in stats):
+            error = "Stats cannot be negative."
+            
         hit_total = (
             int(singles)
             + int(doubles)
@@ -92,13 +105,18 @@ def home():
             + int(home_runs)
         )
         
-        if hit_total != int(hits):
-            error = "Hits must match Singles + Doubles + Triples + Home Runs."
+        if not error:
+            if hit_total != int(hits):
+                error = "Hits must match Singles + Doubles + Triples + Home Runs."
         
-        elif int(hits) > int(at_bats):
-            error = "Hits cannot be greater than At Bats."
+            elif int(hits) > int(at_bats):
+                error = "Hits cannot be greater than At Bats."
+            
+        if error:    
             average = ""
             obp = ""
+            slg = ""
+            ops = ""
             
         elif int(at_bats) > 0:
             average = f"{int(hits) / int(at_bats):.3f}"
