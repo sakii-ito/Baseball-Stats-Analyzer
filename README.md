@@ -93,6 +93,6 @@
 
 🍀 오늘도 한 줄씩 성장 중! 🍀
 
-<sub>Thank you for visiting my little project ♡</sub>
+<sub>♡ Thank you for visiting my little project ♡</sub>
 
 </div>
